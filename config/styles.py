@@ -1,8 +1,74 @@
 # CSS Styling for Dashboard
 # =========================
 
+# CSS Styling for Dashboard
+# =========================
+
 CUSTOM_CSS = """
 <style>
+    /* ULTRA AGGRESSIVE: Hide ALL Streamlit default navigation */
+    div[data-testid="stSidebar"] > div:first-child,
+    div[data-testid="stSidebar"] > div:nth-child(2),
+    div[data-testid="stSidebar"] > div:nth-child(3),
+    div[data-testid="stSidebar"] > div:nth-child(4),
+    div[data-testid="stSidebar"] > div:nth-child(5) {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        height: 0 !important;
+        width: 0 !important;
+        overflow: hidden !important;
+    }
+    
+    /* Hide any elements containing unwanted text */
+    div[data-testid="stSidebar"] *:contains("main"),
+    div[data-testid="stSidebar"] *:contains("alerts"),
+    div[data-testid="stSidebar"] *:contains("anomaly"),
+    div[data-testid="stSidebar"] *:contains("comparison"),
+    div[data-testid="stSidebar"] *:contains("overview"),
+    div[data-testid="stSidebar"] *:contains("trends") {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        height: 0 !important;
+        width: 0 !important;
+        overflow: hidden !important;
+    }
+    
+    /* Hide any input fields or search elements */
+    div[data-testid="stSidebar"] input,
+    div[data-testid="stSidebar"] button[title="Search"],
+    div[data-testid="stSidebar"] div[role="search"] {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        height: 0 !important;
+        width: 0 !important;
+        overflow: hidden !important;
+    }
+    
+    /* Force hide any remaining unwanted elements */
+    .stApp > div[data-testid="stSidebar"] > div:not([data-testid="stSidebarContent"]) {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        height: 0 !important;
+        width: 0 !important;
+        overflow: hidden !important;
+    }
+    
+    /* Hide Streamlit default UI elements */
+    #MainMenu {visibility: hidden !important;}
+    footer {visibility: hidden !important;}
+    header {visibility: hidden !important;}
+    .stDeployButton {display:none !important;}
+    div[data-testid="stToolbar"] {display:none !important;}
+    .stApp > header {display:none !important;}
+    .stApp > div[data-testid="stHeader"] {display:none !important;}
+    .stApp > div[data-testid="stToolbar"] {display:none !important;}
+    .stApp > div[data-testid="stDecoration"] {display:none !important;}
+    .stApp > div[data-testid="stStatusWidget"] {display:none !important;}
+    
     /* Main theme colors */
     :root {
         --primary-color: #1f2937;

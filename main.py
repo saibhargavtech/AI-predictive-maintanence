@@ -32,64 +32,7 @@ st.set_page_config(
     }
 )
 
-# Hide Streamlit's default elements
-st.markdown("""
-<style>
-    #MainMenu {visibility: hidden;}
-    footer {visibility: hidden;}
-    header {visibility: hidden;}
-    .stDeployButton {display:none;}
-    div[data-testid="stToolbar"] {display:none;}
-    .stApp > header {display:none;}
-    .stApp > div[data-testid="stHeader"] {display:none;}
-    .stApp > div[data-testid="stToolbar"] {display:none;}
-    .stApp > div[data-testid="stDecoration"] {display:none;}
-    .stApp > div[data-testid="stStatusWidget"] {display:none;}
-    .stApp > div[data-testid="stAppViewContainer"] > div[data-testid="stHeader"] {display:none;}
-    .stApp > div[data-testid="stAppViewContainer"] > div[data-testid="stToolbar"] {display:none;}
-    .stApp > div[data-testid="stAppViewContainer"] > div[data-testid="stDecoration"] {display:none;}
-    .stApp > div[data-testid="stAppViewContainer"] > div[data-testid="stStatusWidget"] {display:none;}
-    
-    /* Hide additional unwanted elements */
-    .stApp > div[data-testid="stSidebar"] > div[data-testid="stSidebarContent"] > div:first-child {display:none;}
-    .stApp > div[data-testid="stSidebar"] > div[data-testid="stSidebarContent"] > div:nth-child(2) {display:none;}
-    div[data-testid="stSidebar"] > div:first-child {display:none;}
-    div[data-testid="stSidebar"] > div:nth-child(2) {display:none;}
-    
-    /* Hide search and navigation elements */
-    div[data-testid="stSidebar"] input {display:none;}
-    div[data-testid="stSidebar"] button[title="Search"] {display:none;}
-    div[data-testid="stSidebar"] div[role="search"] {display:none;}
-    
-    /* Hide any remaining unwanted elements */
-    .stApp > div[data-testid="stSidebar"] > div[data-testid="stSidebarContent"] > div[style*="search"] {display:none;}
-    .stApp > div[data-testid="stSidebar"] > div[data-testid="stSidebarContent"] > div[style*="main"] {display:none;}
-    
-    /* Hide all possible navigation/search elements */
-    div[data-testid="stSidebar"] > div:first-child,
-    div[data-testid="stSidebar"] > div:nth-child(2),
-    div[data-testid="stSidebar"] > div:nth-child(3),
-    div[data-testid="stSidebar"] > div:nth-child(4) {display:none !important;}
-    
-    /* Hide any text containing "main", "alerts", "anomaly", etc. */
-    div[data-testid="stSidebar"] *:contains("main"),
-    div[data-testid="stSidebar"] *:contains("alerts"),
-    div[data-testid="stSidebar"] *:contains("anomaly"),
-    div[data-testid="stSidebar"] *:contains("comparison"),
-    div[data-testid="stSidebar"] *:contains("overview"),
-    div[data-testid="stSidebar"] *:contains("trends") {display:none !important;}
-    
-    /* Force hide any input fields or search boxes */
-    input[type="text"],
-    input[type="search"],
-    input[placeholder*="search"],
-    input[placeholder*="Search"],
-    button[aria-label*="search"],
-    button[aria-label*="Search"] {display:none !important;}
-</style>
-""", unsafe_allow_html=True)
-
-# Apply custom styling
+# Apply custom styling first (includes aggressive CSS to hide unwanted elements)
 apply_custom_styles()
 
 # --------------------------

@@ -1,0 +1,33 @@
+[33mcommit d29193c5e1f5d350a04b704e6534eee0d10a59c9[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: sai bhargav <saibhargav2412@gmaail.com>
+Date:   Thu Sep 25 16:09:37 2025 +0530
+
+    Initial commit: Predictive Maintenance Dashboard
+
+.gitignore
+.streamlit/config.toml
+README.md
+components/__init__.py
+components/alerts.py
+components/equipment_status.py
+components/kpi_tiles.py
+config/__init__.py
+config/constants.py
+config/navigation.py
+config/styles.py
+crusher_sensor_data 1.xlsx
+crusher_sensor_data.csv
+dashboard.py
+data_with_Anomaly_Flag.xlsx
+data_with_anomaly.csv
+main.py
+pages/__init__.py
+pages/alerts.py
+pages/anomaly_viz.py
+pages/comparison.py
+pages/overview.py
+pages/trends.py
+requirements.txt
+utils/__init__.py
+utils/calculations.py
+utils/data_loader.py
