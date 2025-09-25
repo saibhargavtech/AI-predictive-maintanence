@@ -11,11 +11,17 @@ from config.navigation import render_sidebar_navigation, PAGES
 from utils.data_loader import load_data
 
 # Import page modules
-from pages.overview import render_overview_page
-from pages.alerts import render_alerts_page
-from pages.trends import render_trends_page
-from pages.anomaly_viz import render_anomaly_viz_page
-from pages.comparison import render_comparison_page
+# from pages.overview import render_overview_page
+# from pages.alerts import render_alerts_page
+# from pages.trends import render_trends_page
+# from pages.anomaly_viz import render_anomaly_viz_page
+# from pages.comparison import render_comparison_page
+
+from modules.overview import render_overview_page
+from modules.alerts import render_alerts_page
+from modules.trends import render_trends_page
+from modules.anomaly_viz import render_anomaly_viz_page
+from modules.comparison import render_comparison_page
 
 # --------------------------
 # Page Configuration
