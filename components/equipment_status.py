@@ -74,3 +74,6 @@ def render_sensor_status(sensor_status):
                 """, unsafe_allow_html=True)
     else:
         st.info("No sensor data available.")
+
+
+

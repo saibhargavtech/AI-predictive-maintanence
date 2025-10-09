@@ -135,3 +135,6 @@ def render_kpi_tiles(anomaly_metrics, deviations):
         col=col6, 
         status=power_dev_status
     )
+
+
+
