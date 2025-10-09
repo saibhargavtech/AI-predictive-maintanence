@@ -6,12 +6,10 @@
 
 CUSTOM_CSS = """
 <style>
-    /* ULTRA AGGRESSIVE: Hide ALL Streamlit default navigation */
-    div[data-testid="stSidebar"] > div:first-child,
-    div[data-testid="stSidebar"] > div:nth-child(2),
-    div[data-testid="stSidebar"] > div:nth-child(3),
-    div[data-testid="stSidebar"] > div:nth-child(4),
-    div[data-testid="stSidebar"] > div:nth-child(5) {
+    /* Hide Streamlit default navigation elements but keep sidebar functional */
+    div[data-testid="stSidebar"] > div:first-child > div:first-child,
+    div[data-testid="stSidebar"] > div:first-child > div:nth-child(2),
+    div[data-testid="stSidebar"] > div:first-child > div:nth-child(3) {
         display: none !important;
         visibility: hidden !important;
         opacity: 0 !important;
@@ -47,14 +45,11 @@ CUSTOM_CSS = """
         overflow: hidden !important;
     }
     
-    /* Force hide any remaining unwanted elements */
-    .stApp > div[data-testid="stSidebar"] > div:not([data-testid="stSidebarContent"]) {
-        display: none !important;
-        visibility: hidden !important;
-        opacity: 0 !important;
-        height: 0 !important;
-        width: 0 !important;
-        overflow: hidden !important;
+    /* Keep sidebar content visible and functional */
+    div[data-testid="stSidebarContent"] {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
     }
     
     /* Hide Streamlit default UI elements */
