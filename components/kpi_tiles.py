@@ -138,3 +138,6 @@ def render_kpi_tiles(anomaly_metrics, deviations):
 
 
 
+
+
+

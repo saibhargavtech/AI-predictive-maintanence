@@ -39,10 +39,8 @@ def calculate_anomaly_metrics(df_f):
     Returns:
         dict: Contains anomaly_pct, machines_alert, plants_affected
     """
-    # Calculate anomaly percentage in last 24 hours
-    last_24h = df_f["datetime_stamp"].max() - pd.Timedelta(hours=24)
-    recent_data = df_f[df_f["datetime_stamp"] >= last_24h]
-    anomaly_pct = (recent_data["Anomaly_Flag"].sum() / len(recent_data) * 100) if len(recent_data) > 0 else 0
+    # Calculate anomaly percentage from entire dataset (more meaningful for maintenance)
+    anomaly_pct = (df_f["Anomaly_Flag"].sum() / len(df_f) * 100) if len(df_f) > 0 else 0
     
     # Count active machines under alert
     machines_alert = df_f.loc[df_f["Anomaly_Flag"] == 1, "Machine_Id"].nunique() if "Machine_Id" in df_f.columns else 0

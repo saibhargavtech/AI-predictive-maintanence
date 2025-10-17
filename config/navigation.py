@@ -26,6 +26,11 @@ PAGES = {
         "icon": "🏭",
         "description": "Bar Charts & Pareto Analysis",
         "file": "pages/comparison.py"
+    },
+    "Root Cause Analysis and Predictive Indicators": {
+        "icon": "🔍",
+        "description": "Failure Pattern & Predictive Analysis",
+        "file": "pages/root_cause_analysis.py"
     }
 }
 
@@ -67,6 +72,9 @@ def render_sidebar_navigation():
                 st.rerun()
     
     st.sidebar.markdown("---")
+
+
+
 
 
 

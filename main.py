@@ -22,6 +22,7 @@ from modules.alerts import render_alerts_page
 from modules.trends import render_trends_page
 from modules.anomaly_viz import render_anomaly_viz_page
 from modules.comparison import render_comparison_page
+from modules.root_cause_analysis import render_root_cause_analysis_page
 
 # --------------------------
 # Page Configuration
@@ -134,6 +135,8 @@ elif current_page == 'Anomaly Visualization':
     render_anomaly_viz_page()
 elif current_page == 'Plant / Machine Comparison':
     render_comparison_page()
+elif current_page == 'Root Cause Analysis and Predictive Indicators':
+    render_root_cause_analysis_page()
 else:
     # Default to Overview
     st.session_state['current_page'] = 'Overview'

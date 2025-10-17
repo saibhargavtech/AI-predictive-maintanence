@@ -149,46 +149,7 @@ def render_comparison_page():
     st.markdown("---")
     
     # --------------------------
-    # Row 3 — Heatmap: Plant vs Anomaly Count
-    # --------------------------
-    st.markdown('<h2 class="section-header">🔥 Plant vs Anomaly Heatmap</h2>', unsafe_allow_html=True)
-    
-    if "Plant_Id" in df_f.columns and "Machine_Id" in df_f.columns:
-        # Create plant vs machine anomaly heatmap
-        plant_machine_anomalies = (
-            df_f.groupby(["Plant_Id", "Machine_Id"])["Anomaly_Flag"]
-            .sum()
-            .reset_index(name="Anomaly_Count")
-        )
-        
-        # Pivot for heatmap
-        heatmap_data = plant_machine_anomalies.pivot(
-            index="Plant_Id", 
-            columns="Machine_Id", 
-            values="Anomaly_Count"
-        ).fillna(0)
-        
-        if heatmap_data.shape[0] > 0 and heatmap_data.shape[1] > 0:
-            fig_heatmap = px.imshow(
-                heatmap_data,
-                aspect="auto",
-                title="Anomaly Count by Plant and Machine",
-                labels={'x': 'Machine ID', 'y': 'Plant ID', 'color': 'Anomaly Count'},
-                color_continuous_scale="Reds"
-            )
-            fig_heatmap.update_layout(
-                height=500,
-                plot_bgcolor="rgba(0,0,0,0)",
-                paper_bgcolor="rgba(0,0,0,0)"
-            )
-            st.plotly_chart(fig_heatmap, use_container_width=True)
-        else:
-            st.info("Not enough data to create plant-machine heatmap.")
-    
-    st.markdown("---")
-    
-    # --------------------------
-    # Row 4 — Plant Performance Comparison
+    # Row 3 — Plant Performance Comparison
     # --------------------------
     st.markdown('<h2 class="section-header">🏭 Plant Performance Comparison</h2>', unsafe_allow_html=True)
     
