@@ -36,5 +36,3 @@ jobs:
         tags: |
           ${{ secrets.REGISTRY_LOGIN_SERVER }}/${{ env.CONTAINER_NAME }}:latest
           ${{ secrets.REGISTRY_LOGIN_SERVER }}/${{ env.CONTAINER_NAME }}:${{ github.sha }}
-        cache-from: type=gha
-        cache-to: type=gha,mode=max
