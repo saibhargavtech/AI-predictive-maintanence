@@ -24,6 +24,56 @@ from modules.anomaly_viz import render_anomaly_viz_page
 from modules.comparison import render_comparison_page
 from modules.root_cause_analysis import render_root_cause_analysis_page
 
+def render_model_development_page():
+    """Render the Model Development Centre page"""
+    # Import ML backend
+    import sys
+    import os
+    sys.path.append(os.path.join(os.path.dirname(__file__), 'Backend'))
+    
+    try:
+        from streamlit_ml_backend import render_ml_backend
+        # Directly render the ML backend
+        render_ml_backend()
+    except Exception as e:
+        st.error(f"Error loading ML backend: {str(e)}")
+        st.info("Please ensure the ML backend files are available in the Backend directory.")
+        
+        # Fallback to simple page
+        st.markdown("## 🤖 Model Development Centre")
+        st.markdown("**Anomaly & Novelty Detection Pipeline**")
+        
+        st.info("""
+        🚀 **Welcome to the Model Development Centre!**
+        
+        This section provides advanced machine learning capabilities for predictive maintenance.
+        """)
+        
+        st.markdown("### 📋 Available ML Features")
+        
+        col1, col2, col3 = st.columns(3)
+        
+        with col1:
+            st.markdown("#### 🔍 Anomaly Detection")
+            st.markdown("- Isolation Forest Algorithm")
+            st.markdown("- PCA Visualization")
+            st.markdown("- Anomaly Scoring")
+            st.markdown("- CSV Export")
+        
+        with col2:
+            st.markdown("#### 🆕 Novelty Detection")
+            st.markdown("- Autoencoder Training")
+            st.markdown("- PyTorch Integration")
+            st.markdown("- Reconstruction Errors")
+            st.markdown("- Threshold Analysis")
+        
+        with col3:
+            st.markdown("#### 📊 Full Pipeline")
+            st.markdown("- Complete Workflow")
+            st.markdown("- All Algorithms")
+            st.markdown("- Interactive Training")
+            st.markdown("- Results Comparison")
+
 # --------------------------
 # Page Configuration
 # --------------------------
@@ -47,13 +97,8 @@ apply_custom_styles()
 # --------------------------
 render_sidebar_navigation()
 
-# Data upload and filtering
-uploaded = st.sidebar.file_uploader(
-    "📁 Upload Model Output File CSV",
-    type=["csv"],
-    help="Upload your model output CSV file with IF scores"
-)
-df = load_data(uploaded)
+# Load default data (no upload needed)
+df = load_data(None)
 
 # System Status
 st.sidebar.markdown("### 🔧 System Status")
@@ -137,6 +182,8 @@ elif current_page == 'Plant / Machine Comparison':
     render_comparison_page()
 elif current_page == 'Root Cause Analysis and Predictive Indicators':
     render_root_cause_analysis_page()
+elif current_page == 'Model Development Centre':
+    render_model_development_page()
 else:
     # Default to Overview
     st.session_state['current_page'] = 'Overview'

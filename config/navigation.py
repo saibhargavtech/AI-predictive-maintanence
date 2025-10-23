@@ -71,6 +71,14 @@ def render_sidebar_navigation():
                 st.session_state['current_page'] = page_name
                 st.rerun()
     
+    # Model Development Centre Button
+    st.sidebar.markdown("---")
+    st.sidebar.markdown("### 🤖 Model Development")
+    
+    if st.sidebar.button("🚀 Model Development Centre", use_container_width=True, type="primary"):
+        st.session_state['current_page'] = 'Model Development Centre'
+        st.rerun()
+    
     st.sidebar.markdown("---")
 
 
